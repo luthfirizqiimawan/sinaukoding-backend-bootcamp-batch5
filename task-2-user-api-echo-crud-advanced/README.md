@@ -1,35 +1,44 @@
-## 📌 User CRUD REST API — Echo + Swagger + Validation
+# 🧩 Go Echo User API — CRUD + Swagger + Validation
 
-Project ini merupakan implementasi REST API sederhana menggunakan **Golang + Echo Framework** dengan fitur:
+Project ini merupakan implementasi REST API sederhana menggunakan **Golang & Echo Framework** dengan fitur:
 
-- CRUD User  
-- Validation (`go-playground/validator`)
-- Auto Increment ID  
-- Swagger API Documentation  
-- JSON Response Standardized  
+- CRUD User (Create, Read, Update, Delete)
+- Validation menggunakan `validator.v10`
+- Swagger API Documentation
+- In-memory data (slice)
+- JSON response terstruktur
 
-### 🛠 Teknologi yang digunakan
+Swagger documentation berada pada folder:
 
-- Golang  
-- Echo Framework  
-- Swagger Docs  
-- Validator v10  
-
----
-
-## 📁 API Endpoints
-
-| Method | Endpoint     | Description     |
-|--------|-------------|----------------|
-| GET    | /users      | Get all users  |
-| GET    | /users/{id} | Get user by ID |
-| POST   | /users      | Create user    |
-| PUT    | /users/{id} | Update user    |
-| DELETE | /users/{id} | Delete user    |
+```
+/docs
+```
 
 ---
 
-## ⚙️ Run Application
+## 🛠 Tech Stack
+
+- Golang
+- Echo Framework
+- Swagger (swaggo)
+- Validator v10
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── docs/           # Swagger generated files
+├── .env
+├── go.mod
+├── go.sum
+└── main.go
+```
+
+---
+
+## 🚀 Run Application
 
 Jalankan aplikasi:
 
@@ -37,7 +46,7 @@ Jalankan aplikasi:
 go run main.go
 ```
 
-Aplikasi berjalan di:
+Aplikasi berjalan pada:
 
 ```
 http://localhost:8080
@@ -51,25 +60,19 @@ http://localhost:8080/swagger/index.html
 
 ---
 
-## 🧩 Example User Payload
+## 📌 API Endpoints
 
-```json
-{
-  "name": "John Doe",
-  "age": 22
-}
-```
-
-### Validation Rules
-
-- name → required  
-- age → must be ≥ 0  
+| Method | Endpoint     | Deskripsi        |
+|--------|-------------|-----------------|
+| GET    | /users      | Get all users   |
+| GET    | /users/{id} | Get user by ID  |
+| POST   | /users      | Create user     |
+| PUT    | /users/{id} | Update user     |
+| DELETE | /users/{id} | Delete user     |
 
 ---
 
-## 🧪 Sample Responses
-
-### ✅ Success (Create User)
+## 🧩 Example Request Body
 
 ```json
 {
@@ -79,29 +82,34 @@ http://localhost:8080/swagger/index.html
 }
 ```
 
-### ⚠️ Validation Error
+### ✅ Validation Rules
 
-```json
-{
-  "error": "Invalid input"
-}
-```
-
-### ❌ User Not Found
-
-```json
-{
-  "error": "User not found"
-}
-```
+- `id` → required
+- `name` → required
+- `age` → required & must be ≥ 0
 
 ---
 
-## ✨ Key Learning Points
+## ✨ Notes
 
-- Implementasi REST API menggunakan Echo  
-- Penyimpanan data dalam slice (in-memory)  
-- Auto-increment user ID  
-- Input validation menggunakan validator.v10  
-- Error handling best practice  
-- Swagger API Documentation  
+Untuk generate ulang Swagger docs:
+
+```bash
+swag init
+```
+
+Folder `docs/` akan diperbarui otomatis.
+
+---
+
+## 🎯 Learning Focus
+
+- REST API dengan Echo
+- Middleware & Validation
+- Swagger Documentation
+- Basic API Best Practices
+
+---
+
+💡 Project ini dibuat sebagai bagian dari  
+**Bootcamp Sinau Koding — Backend (Golang & PostgreSQL)**
