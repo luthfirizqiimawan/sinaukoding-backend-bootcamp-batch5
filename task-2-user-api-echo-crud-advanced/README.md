@@ -1,36 +1,107 @@
-This is the second backend assignment from Sinau Koding Bootcamp Batch 5.
+## 📌 User CRUD REST API — Echo + Swagger + Validation
 
-It is a user REST API built with:
+Project ini merupakan implementasi REST API sederhana menggunakan **Golang + Echo Framework** dengan fitur:
 
-Golang
+- CRUD User  
+- Validation (`go-playground/validator`)
+- Auto Increment ID  
+- Swagger API Documentation  
+- JSON Response Standardized  
 
-Echo Framework
+### 🛠 Teknologi yang digunakan
 
-echo-swagger
+- Golang  
+- Echo Framework  
+- Swagger Docs  
+- Validator v10  
 
-Validator (go-playground)
+---
 
-API Endpoints
+## 📁 API Endpoints
 
-GET /users
+| Method | Endpoint     | Description     |
+|--------|-------------|----------------|
+| GET    | /users      | Get all users  |
+| GET    | /users/{id} | Get user by ID |
+| POST   | /users      | Create user    |
+| PUT    | /users/{id} | Update user    |
+| DELETE | /users/{id} | Delete user    |
 
-GET /users/{id}
+---
 
-POST /users
+## ⚙️ Run Application
 
-PUT /users/{id}
+Jalankan aplikasi:
 
-DELETE /users/{id}
-
-⚙️ How to Run
+```bash
 go run main.go
+```
 
+Aplikasi berjalan di:
 
-The API runs on:
-
+```
 http://localhost:8080
+```
 
+Swagger Docs:
 
-Swagger docs:
-
+```
 http://localhost:8080/swagger/index.html
+```
+
+---
+
+## 🧩 Example User Payload
+
+```json
+{
+  "name": "John Doe",
+  "age": 22
+}
+```
+
+### Validation Rules
+
+- name → required  
+- age → must be ≥ 0  
+
+---
+
+## 🧪 Sample Responses
+
+### ✅ Success (Create User)
+
+```json
+{
+  "id": 4,
+  "name": "John Doe",
+  "age": 22
+}
+```
+
+### ⚠️ Validation Error
+
+```json
+{
+  "error": "Invalid input"
+}
+```
+
+### ❌ User Not Found
+
+```json
+{
+  "error": "User not found"
+}
+```
+
+---
+
+## ✨ Key Learning Points
+
+- Implementasi REST API menggunakan Echo  
+- Penyimpanan data dalam slice (in-memory)  
+- Auto-increment user ID  
+- Input validation menggunakan validator.v10  
+- Error handling best practice  
+- Swagger API Documentation  
